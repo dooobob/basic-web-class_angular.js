@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Step05_Dir_ngKey.html</title>
+	<script src="js/angular.min.js"></script>
+	<script>
+	var myApp=angular.module("myApp",[]);
+	myApp.controller("one",["$scope",function($scope){
+		$scope.msgs=[{data:"하나"}];
+		//input 요소에 keyup 이벤트가 일어나면 호출  
+		$scope.onKeyup=function($event){
+			//눌러진 키의 코드값 읽어오기
+			var code=$event.keyCode;
+			console.log(code);//엔터키는 13 번 
+			if(code==13){//엔터키를 눌렀을때
+				//object 에 담아서 
+				var obj={data:$scope.msg}; 
+				//배열에 추가한다. 
+				$scope.msgs.push(obj);
+				//입력창 초기화 
+				$scope.msg="";
+			}
+		};
+		$scope.onKeydown=function(){
+			console.log("keydown!");
+		};
+	}]);
+	</script>
+</head>
+<body ng-controller="one">
+	<input type="text" ng-model="msg" 
+		ng-keyup="onKeyup($event)"
+		ng-keydown="onKeydown()"/>
+	<p>{{msg}}</p>
+	<ul>
+		<li ng-repeat="tmp in msgs">{{tmp.data}}</li>
+	</ul>
+</body>
+</html>

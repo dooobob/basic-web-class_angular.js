@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Step12_ngAnimate.html</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-animate.min.js"></script>
+	<script>
+		var myApp=angular.module("myApp",["ngAnimate"]);
+		myApp.controller("one",["$scope",function($scope){
+
+		}]);
+	</script>
+	<style>
+	/* .ng-enter 클래스는 문서 객체가 만들어지는 시점에 동적 적용된다.
+		다 만들어진 이후에는 제거 됨 */
+	.img-animation.ng-enter{
+		animation: fadeInRight 0.4s;
+	}
+	/* ng-leave 클래스는 문서 객체가 제거되는 시점에 동작 적용된다. */
+	.img-animation.ng-leave{
+		animation: fadeOut 0.2s;
+	}
+	</style>
+</head>
+<body ng-controller="one">
+	<h3>ngAnimate 모듈 테스트</h3>
+	<input type="checkbox" ng-model="isMake"/><br/>
+	<img class="img-animation" src="images/image1.png" width="200" alt="" ng-if="isMake">
+</body>
+</html>

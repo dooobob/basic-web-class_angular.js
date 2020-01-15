@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>helloAngular.html</title>
+	<!-- Angular js 자바스크립트 로딩하기 -->
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	Hello, {{'Angular' + 'JS!'}}<br/>
+	10+10 = {{10+10}}<br/>
+	<input type="text" ng-model="msg"/>
+	<p>{{msg}}</p>
+	<ul>
+		<li ng-repeat="tmp in [10,20,30,40,50]">{{tmp}}</li>
+	</ul>
+	<input type="checkbox" ng-model="isChecked"/>
+	<strong>{{isChecked}}</strong>
+</body>
+</html>

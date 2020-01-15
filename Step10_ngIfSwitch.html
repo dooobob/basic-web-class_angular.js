@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Step10_ngIfSwitch.html</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js/angular.min.js"></script>
+	<script>
+		var myApp=angular.module("myApp",[]);
+		myApp.controller("one",["$scope",function($scope){
+			$scope.onFocus=function(name){
+				$scope.msg1=name+" focus !";
+			};
+			$scope.onBlur=function(name){
+				$scope.msg2=name+" blur !";
+			};
+		}]);
+		$scope.num=1;
+	</script>
+</head>
+<body ng-controller="one">
+	<a href="#"
+		ng-focus="onFocus('anchor')"
+		ng-blur="onBlur('anchor')">링크</a>
+	<button
+		ng-focus="onFocus('button')"
+		ng-blur="onBlur('button')">버튼</button>
+	<input type="text" placeholder="form요소"
+		ng-focus="onFocus('input')"
+		ng-blur="onBlur('input')"/><br/>
+	<p>{{msg1}}</p>
+	<p>{{msg2}}</p>
+	<a href="#" ng-init="isMake=false" ng-focus="isMake=true" ng-blur="isMake=false">링크2</a><br/>
+	<!-- ng-if 는 문서객체를 만들지 제거할지를 결정한다. -->
+	<img src="images/rabbit1.png" alt="" ng-if="isMake"/>
+	<br/>
+	<select name="" id="" ng-model="num">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+	<div ng-switch="num">
+		<img ng-switch-when="1" src="images/run1.png" alt="">
+		<img ng-switch-when="2" src="images/run2.png" alt="">
+		<img ng-switch-when="3" src="images/run3.png" alt="">
+		<img ng-switch-default src="images/rabbit1.png" alt="">
+	</div>
+</body>
+</html>

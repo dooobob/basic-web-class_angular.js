@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Step08_Dir_ngShowHide.html</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js/angular.min.js"></script>
+	<script>
+		var myApp=angular.module("myApp",[]);
+		myApp.controller("one",["$scope",function($scope){
+			
+		}]);
+	</script>
+	<style>
+	.box{
+		width: 300px;
+		height: 300px;
+		background-color: #cecece;
+	}
+	</style>
+</head>
+<body ng-controller="one">
+	<div class="box" 
+		ng-init="isShow=false"
+		ng-mouseenter="isShow=true"
+		ng-mouseleave="isShow=false">
+		<p ng-show="isShow">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates ea voluptatum unde consectetur qui nam eos corporis deleniti, voluptatibus, totam cupiditate sapiente laboriosam maxime, maiores quibusdam accusamus! Quas, iusto, nulla?</p>
+	</div>
+	<br/>
+	<div class="box" 
+		ng-init="isHide=false"
+		ng-mouseenter="isHide=true"
+		ng-mouseleave="isHide=false">
+		<p ng-hide="isHide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates ea voluptatum unde consectetur qui nam eos corporis deleniti, voluptatibus, totam cupiditate sapiente laboriosam maxime, maiores quibusdam accusamus! Quas, iusto, nulla?</p>
+	</div>
+</body>
+</html>
